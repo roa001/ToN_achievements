@@ -3,6 +3,13 @@ body{font-family:sans-serif;margin:20px}
 h1{margin-bottom:10px}
 .top-toggles{display:flex;gap:16px;margin:8px 0 16px}
 
+/* 画面中央に揃える対象 */
+.top-toggles,.filters,.section-title,
+#gridMain,#gridFes,#gridLegacy{ /* まとめて中央寄せ */
+  max-width: var(--limit-w, 1100px);
+  margin-left:auto;margin-right:auto;
+}
+
 /* フィルタUI */
 .filters{display:grid;gap:12px;margin:12px 0}
 .filter-block{padding:10px;border:1px solid #ddd;border-radius:8px}
@@ -14,15 +21,37 @@ h1{margin-bottom:10px}
 .section-title{margin:16px 0 8px}
 .section-title.small{font-size:1rem;opacity:.85}
 
+/* ===== グリッド（中央寄せ & 自動列数） =====
+   変数:
+   --card-min : 各カードの最小幅
+   --gap      : カード間の隙間
+   --cols     : 最大列数（上限）
+   --limit-w  : 全体の最大幅（=中央寄せの基準）
+*/
+:root{
+  --card-min: 160px;
+  --gap: 15px;
+  --cols: 6;                /* ここを 5/6/7 など好みで */
+  --limit-w: calc(var(--cols) * var(--card-min) + (var(--cols) - 1) * var(--gap));
+}
+
 /* グリッド */
-.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:15px}
-@media (max-width: 900px){ .grid{grid-template-columns:repeat(4,1fr)} }
-@media (max-width: 600px){ .grid{grid-template-columns:repeat(3,1fr)} }
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--card-min), 1fr));
+  gap: var(--gap);
+}
+
+/* 狭い画面での列数自動減少は上の minmax が担当。
+   さらに極小端末向けに最小幅を少し下げたい時は次を調整。*/
+@media (max-width: 600px){
+  :root{ --card-min: 120px; }
+}
 
 .cell{position:relative;text-align:center;cursor:pointer}
 
-/* 画像枠：太め（4px）に変更＆固定アスペクトでチラつき防止 */
-.imgwrap{position:relative;width:100%;aspect-ratio:1/1;overflow:hidden;border:4px solid #ccc;border-radius:10px}
+/* 画像枠：太め（4px）＆固定アスペクトでチラつき防止 */
+.imgwrap{position:relative;width:100%;aspect-ratio:1/1;overflow:hidden;border:6px solid #ccc;border-radius:10px}
 .imgwrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .2s,filter .2s,border-color .2s}
 .imgwrap:hover img{transform:scale(1.05)}
 
