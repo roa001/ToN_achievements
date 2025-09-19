@@ -8,10 +8,23 @@
 </head>
 <body>
   <h1>ToN 成果一覧</h1>
-  <div id="debug" style="white-space:pre-wrap;color:#c00;font-family:monospace"></div>
-  <div id="grid" class="grid">loading…</div>
+
+  <!-- フィルタUI -->
+  <div class="filters">
+    <label>
+      含めるタグ:
+      <input type="text" id="includeTags" placeholder="含むタグ">
+    </label>
+    <label>
+      除外するタグ:
+      <input type="text" id="excludeTags" placeholder="除外タグ">
+    </label>
+    <button id="applyFilter">フィルタ適用</button>
+    <button id="resetFilter">リセット</button>
+  </div>
+
+  <div id="grid" class="grid"></div>
 
   <script src="./script.js" defer></script>
-  <noscript>このページはJavaScriptが必要です。</noscript>
 </body>
 </html>

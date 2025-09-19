@@ -47,7 +47,7 @@
     "tags": [
       "null"
     ],
-    "image": "images/05_Escaped.jpg"
+    "image": "images/005_Escaped.jpg"
   },
   {
     "id": 6,
@@ -65,7 +65,8 @@
     "condition": "「メタルバット」で「ブラッドバス」を生存",
     "owned": false,
     "tags": [
-      "null"
+      "アイテム解放",
+      "アイテム進化"
     ],
     "image": "images/007_Slaughter.jpg"
   },
@@ -87,7 +88,7 @@
     "tags": [
       "null"
     ],
-    "image": ""
+    "image": "009_Oooo_Shiny.jpg"
   },
   {
     "id": 10,
@@ -97,7 +98,7 @@
     "tags": [
       "null"
     ],
-    "image": ""
+    "image": "010_Business_Partner.jpg"
   },
   {
     "id": 11,
@@ -107,7 +108,7 @@
     "tags": [
       "null"
     ],
-    "image": ""
+    "image": "011_Pale_Associate.jpg"
   },
   {
     "id": 12,
@@ -117,7 +118,7 @@
     "tags": [
       "null"
     ],
-    "image": ""
+    "image": "012_Judgement.jpg"
   },
   {
     "id": 13,
@@ -127,7 +128,7 @@
     "tags": [
       "null"
     ],
-    "image": ""
+    "image": "013_Am_I_tripping.jpg"
   },
   {
     "id": 14,
