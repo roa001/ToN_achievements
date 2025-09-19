@@ -1,4 +1,5 @@
 let achievements = [];
+let allTags = [];
 let includeTags = [];
 let excludeTags = [];
 
@@ -12,7 +13,40 @@ async function loadData() {
     if (saved !== null) a.owned = saved === "true";
   });
 
+  // タグ一覧を抽出してUI生成
+  buildTagOptions();
+
   render();
+}
+
+function buildTagOptions() {
+  const tagSet = new Set();
+
+  achievements.forEach(a => {
+    (a.tags || []).forEach(t => {
+      if (t && t.toLowerCase() !== "null") tagSet.add(t);
+    });
+  });
+
+  allTags = Array.from(tagSet).sort();
+
+  const includeSel = document.getElementById("includeTags");
+  const excludeSel = document.getElementById("excludeTags");
+
+  includeSel.innerHTML = "";
+  excludeSel.innerHTML = "";
+
+  allTags.forEach(tag => {
+    const opt1 = document.createElement("option");
+    opt1.value = tag;
+    opt1.textContent = tag;
+    includeSel.appendChild(opt1);
+
+    const opt2 = document.createElement("option");
+    opt2.value = tag;
+    opt2.textContent = tag;
+    excludeSel.appendChild(opt2);
+  });
 }
 
 function render() {
@@ -37,12 +71,10 @@ function render() {
         render();
       });
 
-      // ツールチップ
       const tip = document.createElement("div");
       tip.className = "tooltip";
       tip.textContent = a.condition;
 
-      // タイトル
       const title = document.createElement("div");
       title.className = "title";
       title.textContent = a.title;
@@ -57,12 +89,12 @@ function render() {
 function filterByTags(a) {
   const tags = a.tags || [];
 
-  // 含めるタグ: すべて含まれているか
+  // 含めるタグ: すべて含んでいるか
   for (const t of includeTags) {
     if (!tags.includes(t)) return false;
   }
 
-  // 除外タグ: 一つでも含まれていたらNG
+  // 除外タグ: 1つでも含んでいればNG
   for (const t of excludeTags) {
     if (tags.includes(t)) return false;
   }
@@ -71,22 +103,18 @@ function filterByTags(a) {
 }
 
 function applyFilter() {
-  includeTags = document.getElementById("includeTags").value
-    .split(/[ ,]+/)
-    .map(t => t.trim())
-    .filter(t => t.length > 0);
+  const includeSel = document.getElementById("includeTags");
+  const excludeSel = document.getElementById("excludeTags");
 
-  excludeTags = document.getElementById("excludeTags").value
-    .split(/[ ,]+/)
-    .map(t => t.trim())
-    .filter(t => t.length > 0);
+  includeTags = Array.from(includeSel.selectedOptions).map(o => o.value);
+  excludeTags = Array.from(excludeSel.selectedOptions).map(o => o.value);
 
   render();
 }
 
 function resetFilter() {
-  document.getElementById("includeTags").value = "";
-  document.getElementById("excludeTags").value = "";
+  document.getElementById("includeTags").selectedIndex = -1;
+  document.getElementById("excludeTags").selectedIndex = -1;
   includeTags = [];
   excludeTags = [];
   render();
