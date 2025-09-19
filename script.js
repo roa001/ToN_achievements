@@ -15,8 +15,8 @@ async function init(){
   try{
     const [m,f,l] = await Promise.all([
       fetch("./achievements.json?ts="+Date.now()).then(r=>r.json()),
-      fetch("./fes.json?ts="+Date.now()).then(r=> r.ok ? r.json() : []),
-      fetch("./legacy.json?ts="+Date.now()).then(r=> r.ok ? r.json() : []),
+      fetch("./fes_achievements.json?ts="+Date.now()).then(r=> r.ok ? r.json() : []),
+      fetch("./legacy_achievements.json?ts="+Date.now()).then(r=> r.ok ? r.json() : []),
     ]);
     mainAch   = m;
     fesAch    = f;
