@@ -1,75 +1,22 @@
-body {
-  font-family: sans-serif;
-  margin: 20px;
-}
+body{font-family:sans-serif;margin:20px}
+h1{margin-bottom:10px}
 
-h1 {
-  margin-bottom: 10px;
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:15px}
+.cell{position:relative;text-align:center;cursor:pointer}
+.cell img{
+  width:100%;aspect-ratio:1/1;object-fit:cover;
+  border:2px solid #ccc;border-radius:8px;
+  transition:transform .2s,filter .2s,border-color .2s;
 }
+.cell img:hover{transform:scale(1.05)}
+.owned img{border-color:green;filter:none}
+.unowned img{border-color:black;filter:grayscale(100%) brightness(60%)}
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr); /* 横6列 */
-  gap: 15px;
-}
+.title{margin-top:5px;font-size:14px}
 
-.cell {
-  text-align: center;
-  position: relative;
-  cursor: pointer;
+.tooltip{
+  visibility:hidden;opacity:0;position:absolute;bottom:110%;left:50%;transform:translateX(-50%);
+  background:rgba(0,0,0,.85);color:#fff;padding:6px 10px;border-radius:6px;
+  font-size:12px;width:200px;text-align:center;transition:opacity .2s;z-index:10;pointer-events:none;
 }
-
-.cell img {
-  width: 100%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  transition: transform 0.2s, filter 0.2s, border-color 0.2s;
-}
-
-/* 所持済み → 緑枠 */
-.owned img {
-  border-color: green;
-  filter: none;
-}
-
-/* 未所持 → 黒枠 + グレースケール + 暗め */
-.unowned img {
-  border-color: black;
-  filter: grayscale(100%) brightness(60%);
-}
-
-.cell img:hover {
-  transform: scale(1.05);
-}
-
-.title {
-  margin-top: 5px;
-  font-size: 14px;
-}
-
-/* ツールチップ */
-.tooltip {
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  bottom: 110%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0,0,0,0.85);
-  color: #fff;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-size: 12px;
-  width: 200px;
-  text-align: center;
-  transition: opacity 0.2s;
-  z-index: 10;
-  pointer-events: none;
-}
-
-.cell:hover .tooltip {
-  visibility: visible;
-  opacity: 1;
-}
+.cell:hover .tooltip{visibility:visible;opacity:1}
