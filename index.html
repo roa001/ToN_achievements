@@ -9,6 +9,13 @@
 <body>
   <h1>ToN 成果一覧</h1>
 
+  <!-- 上部トグル：Fes/Legacy を下段に表示（カウント対象外） -->
+  <div class="top-toggles">
+    <label><input type="checkbox" id="toggleFes"> Fesを表示</label>
+    <label><input type="checkbox" id="toggleLegacy"> Legacyを表示</label>
+  </div>
+
+  <!-- ここから通常データ向けフィルタ（既存UIはそのまま） -->
   <div class="filters">
     <div class="filter-block">
       <div class="filter-title">所持ステータス</div>
@@ -33,7 +40,18 @@
     </div>
   </div>
 
-  <div id="grid" class="grid"></div>
+  <!-- 通常（フィルタ＆カウント対象） -->
+  <h2 class="section-title">通常</h2>
+  <div id="gridMain" class="grid"></div>
+
+  <!-- Fes（カウント外・フィルタ外） -->
+  <h2 class="section-title small">Fes</h2>
+  <div id="gridFes" class="grid"></div>
+
+  <!-- Legacy（カウント外・フィルタ外） -->
+  <h2 class="section-title small">Legacy</h2>
+  <div id="gridLegacy" class="grid"></div>
+
   <script src="./script.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,52 @@
+[
+      {
+    "id": 1,
+    "title": "冬祭り開催！",
+    "condition": "スノースピードコイルを装備(冬イベント時入手可)",
+    "owned": false,
+    "tags": [
+    "null"
+    ],
+    "image": "images/F001_Happy_Winterfest.jpg"
+  },
+    {
+    "id": 2,
+    "title": "彼らの居場所",
+    "condition": "ラウンドタイプ「コールドナイト」を生存（冬イベント時入手可）",
+    "owned": false,
+    "tags": [
+    "【生存】特定ラウンド"
+    ],
+    "image": "images/F002_Their_Garden.jpg"
+  },
+    {
+    "id": 3,
+    "title": "宴の終わり",
+    "condition": "Neo Pilotを生存(冬イベント時入手可)",
+    "owned": false,
+    "tags": [
+    "【生存】特定テラー"
+    ],
+    "image": "images/F003_Partys_Over.jpg"
+  },
+    {
+    "id": 4,
+    "title": "バイトエンゲージ",
+    "condition": "Gigabyte Duoから生存(エイプリルフールイベント時入手可)",
+    "owned": false,
+    "tags": [
+    "【生存】特定テラー"
+    ],
+    "image": "images/F004_Byte_Engaged.jpg"
+  },
+    {
+    "id": 5,
+    "title": "ファズベアトリガー",
+    "condition": "Evil Purple Foxyから生存(エイプリルフールイベント時入手可)",
+    "owned": false,
+    "tags": [
+    "【生存】特定テラー"
+    ],
+    "image": "images/F005_The_Fazbear_Trigger.jpg"
+  }
+]

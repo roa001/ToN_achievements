@@ -1,4 +1,9 @@
-let achievements = [];
+// データを3分割
+let mainAch = [];     // achievements.json（通常）
+let fesAch = [];      // fes.json
+let legacyAch = [];   // legacy.json
+
+// フィルタ状態（通常のみ対象）
 let allTags = [];
 let includeTags = new Set();   // AND
 let excludeTags = new Set();   // OR
@@ -8,33 +13,50 @@ document.addEventListener("DOMContentLoaded", init);
 
 async function init(){
   try{
-    // キャッシュ回避つき（Pagesの強キャッシュ対策）
-    const res = await fetch("./achievements.json?ts="+Date.now());
-    if(!res.ok) throw new Error("JSON fetch failed: " + res.status);
-    achievements = await res.json();
+    const [m,f,l] = await Promise.all([
+      fetch("./achievements.json?ts="+Date.now()).then(r=>r.json()),
+      fetch("./fes.json?ts="+Date.now()).then(r=> r.ok ? r.json() : []),
+      fetch("./legacy.json?ts="+Date.now()).then(r=> r.ok ? r.json() : []),
+    ]);
+    mainAch   = m;
+    fesAch    = f;
+    legacyAch = l;
   }catch(e){
     console.error(e);
-    document.getElementById("grid").textContent = "データの読み込みに失敗しました。";
+    document.getElementById("gridMain").textContent = "データ読込エラー";
     return;
   }
 
-  // 所持状況を復元
-  achievements.forEach(a=>{
-    const saved = localStorage.getItem("achv_"+a.id);
-    if(saved!==null) a.owned = (saved==="true");
-  });
+  // 所持状況を復元（データセットごとに別キー）
+  restoreOwned(mainAch,   "main");
+  restoreOwned(fesAch,    "fes");
+  restoreOwned(legacyAch, "legacy");
 
-  buildTagLists();   // ← JSONから動的にタグ一覧を生成
+  // タグ一覧は通常データから生成
+  buildTagListsFrom(mainAch);
+
   bindFilterEvents();
-  render();
+  bindDatasetToggles();
+
+  renderAll();
 }
 
-function buildTagLists(){
+function restoreOwned(list, ns){
+  list.forEach(a=>{
+    const saved = localStorage.getItem(`achv_${ns}_` + a.id);
+    if(saved!==null) a.owned = (saved==="true");
+  });
+}
+function persistOwned(ns, a){
+  localStorage.setItem(`achv_${ns}_` + a.id, a.owned);
+}
+
+function buildTagListsFrom(list){
   const set = new Set();
-  achievements.forEach(a => (a.tags||[]).forEach(t=>{
+  list.forEach(a => (a.tags||[]).forEach(t=>{
     if(!t) return;
     const s = String(t).trim();
-    if(s && s.toLowerCase()!=="null") set.add(s);   // "null" という文字列は除外 :contentReference[oaicite:0]{index=0}
+    if(s && s.toLowerCase()!=="null") set.add(s); // "null" 文字列は無視
   }));
   allTags = Array.from(set).sort();
 
@@ -42,22 +64,14 @@ function buildTagLists(){
   const exc = document.getElementById("excludeBox");
   inc.innerHTML = ""; exc.innerHTML = "";
 
-  // タグが一つも無いなら「タグなし」と表示（UX向上）
-  if(allTags.length===0){
-    inc.textContent = "（タグなし）";
-    exc.textContent = "（タグなし）";
-    return;
-  }
-
   allTags.forEach(tag=>{
     const mk = (parent, bucket)=>{
       const label = document.createElement("label");
       const cb = document.createElement("input");
-      cb.type = "checkbox";
-      cb.value = tag;
+      cb.type = "checkbox"; cb.value = tag;
       cb.addEventListener("change", ()=>{
         if(cb.checked) bucket.add(tag); else bucket.delete(tag);
-        render();
+        renderMain();
       });
       label.appendChild(cb);
       label.appendChild(document.createTextNode(tag));
@@ -72,7 +86,7 @@ function bindFilterEvents(){
   document.querySelectorAll('input[name="ownedFilter"]').forEach(r=>{
     r.addEventListener("change", e=>{
       ownedFilter = e.target.value;
-      render();
+      renderMain();
     });
   });
 
@@ -82,8 +96,15 @@ function bindFilterEvents(){
       .forEach(cb=>cb.checked=false);
     ownedFilter = "all";
     document.querySelector('input[name="ownedFilter"][value="all"]').checked = true;
-    render();
+    renderMain();
   });
+}
+
+function bindDatasetToggles(){
+  const tgF = document.getElementById("toggleFes");
+  const tgL = document.getElementById("toggleLegacy");
+  tgF.addEventListener("change", renderBottom);
+  tgL.addEventListener("change", renderBottom);
 }
 
 function filterItem(a){
@@ -91,66 +112,86 @@ function filterItem(a){
   if(ownedFilter==="unowned" && a.owned) return false;
 
   const tags = a.tags || [];
-
-  // 含める（AND）
-  for(const t of includeTags){
-    if(!tags.includes(t)) return false;
-  }
-  // 除外（OR）
-  for(const t of excludeTags){
-    if(tags.includes(t)) return false;
-  }
+  for(const t of includeTags){ if(!tags.includes(t)) return false; }
+  for(const t of excludeTags){ if(tags.includes(t)) return false; }
   return true;
 }
 
-function render(){
-  const grid = document.getElementById("grid");
+function renderAll(){ renderMain(); renderBottom(); }
+
+// 通常（カウント対象）
+function renderMain(){
+  const grid = document.getElementById("gridMain");
   grid.innerHTML = "";
 
-  const shown = achievements.filter(filterItem);
-
-  shown.forEach(a=>{
-    const cell = document.createElement("div");
-    cell.className = `cell ${a.owned ? "owned" : "unowned"}`;
-
-    const wrap = document.createElement("div");
-    wrap.className = "imgwrap";
-
-    const img = document.createElement("img");
-    img.loading = "lazy";
-    img.src = a.image && a.image.trim()!=="" ? a.image : "./images/placeholder.png";
-    img.alt = a.title;
-    img.onerror = ()=>{ img.src = "./images/placeholder.png"; };
-
-    img.addEventListener("click", ()=>{
-      a.owned = !a.owned;
-      localStorage.setItem("achv_"+a.id, a.owned);
-      cell.className = `cell ${a.owned ? "owned" : "unowned"}`;
-      updateCount();
-    });
-
-    const tip = document.createElement("div");
-    tip.className = "tooltip";
-    tip.textContent = a.condition;
-
-    const title = document.createElement("div");
-    title.className = "title";
-    title.textContent = a.title;
-
-    wrap.appendChild(img);
-    cell.appendChild(wrap);
-    cell.appendChild(tip);
-    cell.appendChild(title);
-    grid.appendChild(cell);
-  });
+  const shown = mainAch.filter(filterItem);
+  shown.forEach(a => grid.appendChild(makeCell("main", a)));
 
   updateCount();
 }
 
+// Fes / Legacy（フィルタ対象外・カウント外）
+function renderBottom(){
+  const showFes    = document.getElementById("toggleFes").checked;
+  const showLegacy = document.getElementById("toggleLegacy").checked;
+
+  const gf = document.getElementById("gridFes");
+  const gl = document.getElementById("gridLegacy");
+
+  gf.previousElementSibling.style.display = showFes ? "" : "none";
+  gl.previousElementSibling.style.display = showLegacy ? "" : "none";
+  gf.style.display = showFes ? "grid" : "none";
+  gl.style.display = showLegacy ? "grid" : "none";
+
+  if(showFes){
+    gf.innerHTML = "";
+    fesAch.forEach(a => gf.appendChild(makeCell("fes", a)));
+  }
+  if(showLegacy){
+    gl.innerHTML = "";
+    legacyAch.forEach(a => gl.appendChild(makeCell("legacy", a)));
+  }
+}
+
 function updateCount(){
-  const total = achievements.length;
-  const filtered = document.querySelectorAll("#grid .cell").length;
-  const ownedCount = achievements.filter(a=>a.owned).length;
+  const total = mainAch.length;
+  const filtered = document.querySelectorAll("#gridMain .cell").length;
+  const ownedCount = mainAch.filter(a=>a.owned).length;
   document.getElementById("count").textContent =
     `表示: ${filtered} / 全 ${total}（所持 ${ownedCount}）`;
+}
+
+function makeCell(namespace, a){
+  const cell = document.createElement("div");
+  cell.className = `cell ${a.owned ? "owned" : "unowned"}`;
+
+  const wrap = document.createElement("div");
+  wrap.className = "imgwrap";
+
+  const img = document.createElement("img");
+  img.loading = "lazy";
+  img.src = a.image && a.image.trim()!=="" ? a.image : "./images/placeholder.png";
+  img.alt = a.title;
+  img.onerror = ()=>{ img.src = "./images/placeholder.png"; };
+
+  img.addEventListener("click", ()=>{
+    a.owned = !a.owned;
+    persistOwned(namespace, a);
+    cell.className = `cell ${a.owned ? "owned" : "unowned"}`;
+    if(namespace==="main") updateCount();
+  });
+
+  const tip = document.createElement("div");
+  tip.className = "tooltip";
+  tip.textContent = a.condition;
+
+  const title = document.createElement("div");
+  title.className = "title";
+  title.textContent = a.title;
+
+  wrap.appendChild(img);
+  cell.appendChild(wrap);
+  cell.appendChild(tip);
+  cell.appendChild(title);
+  return cell;
 }
