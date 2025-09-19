@@ -11,16 +11,27 @@
 
   <!-- フィルタUI -->
   <div class="filters">
-    <label>
-      含めるタグ:
-      <select id="includeTags" multiple size="5"></select>
-    </label>
-    <label>
-      除外するタグ:
-      <select id="excludeTags" multiple size="5"></select>
-    </label>
-    <button id="applyFilter">フィルタ適用</button>
-    <button id="resetFilter">リセット</button>
+    <div class="filter-block">
+      <div class="filter-title">所持ステータス</div>
+      <label><input type="radio" name="ownedFilter" value="all" checked> すべて</label>
+      <label><input type="radio" name="ownedFilter" value="owned"> 所持のみ</label>
+      <label><input type="radio" name="ownedFilter" value="unowned"> 未所持のみ</label>
+    </div>
+
+    <div class="filter-block">
+      <div class="filter-title">含めるタグ（AND）</div>
+      <div id="includeBox" class="checkboxes"></div>
+    </div>
+
+    <div class="filter-block">
+      <div class="filter-title">除外するタグ（OR）</div>
+      <div id="excludeBox" class="checkboxes"></div>
+    </div>
+
+    <div class="filter-actions">
+      <button id="resetFilter">リセット</button>
+      <span id="count"></span>
+    </div>
   </div>
 
   <div id="grid" class="grid"></div>

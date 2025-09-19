@@ -1,22 +1,40 @@
+/* 基本 */
 body{font-family:sans-serif;margin:20px}
 h1{margin-bottom:10px}
 
+/* フィルタUI */
+.filters{display:grid;gap:12px;margin:12px 0}
+.filter-block{padding:10px;border:1px solid #ddd;border-radius:8px}
+.filter-title{font-weight:bold;margin-bottom:6px}
+.checkboxes{display:flex;flex-wrap:wrap;gap:8px}
+.checkboxes label{display:inline-flex;align-items:center;gap:6px;border:1px solid #ccc;border-radius:16px;padding:4px 10px}
+.filter-actions{display:flex;align-items:center;gap:12px}
+
+/* グリッド */
 .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:15px}
+@media (max-width: 900px){ .grid{grid-template-columns:repeat(4,1fr)} }
+@media (max-width: 600px){ .grid{grid-template-columns:repeat(3,1fr)} }
+
 .cell{position:relative;text-align:center;cursor:pointer}
-.cell img{
-  width:100%;aspect-ratio:1/1;object-fit:cover;
-  border:2px solid #ccc;border-radius:8px;
-  transition:transform .2s,filter .2s,border-color .2s;
-}
-.cell img:hover{transform:scale(1.05)}
-.owned img{border-color:green;filter:none}
-.unowned img{border-color:black;filter:grayscale(100%) brightness(60%)}
 
-.title{margin-top:5px;font-size:14px}
+/* 画像のチラつき/高さブレ対策：固定アスペクトの枠を用意 */
+.imgwrap{position:relative;width:100%;aspect-ratio:1/1;overflow:hidden;border:2px solid #ccc;border-radius:8px}
+.imgwrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .2s,filter .2s,border-color .2s}
+.imgwrap:hover img{transform:scale(1.05)}
 
+/* 所持/未所持 */
+.owned .imgwrap{border-color:green}
+.unowned .imgwrap{border-color:black}
+.owned  .imgwrap img{filter:none}
+.unowned .imgwrap img{filter:grayscale(100%) brightness(60%)}
+
+/* タイトル */
+.title{margin-top:5px;font-size:14px;min-height:1.2em}
+
+/* ツールチップ（条件） */
 .tooltip{
   visibility:hidden;opacity:0;position:absolute;bottom:110%;left:50%;transform:translateX(-50%);
   background:rgba(0,0,0,.85);color:#fff;padding:6px 10px;border-radius:6px;
-  font-size:12px;width:200px;text-align:center;transition:opacity .2s;z-index:10;pointer-events:none;
+  font-size:12px;width:200px;text-align:center;transition:opacity .2s;z-index:10;pointer-events:none
 }
 .cell:hover .tooltip{visibility:visible;opacity:1}
