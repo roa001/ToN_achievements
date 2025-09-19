@@ -1,187 +1,120 @@
 /* =========================
-   基本レイアウト
+   ベース
 ========================= */
-body {
-  font-family: sans-serif;
-  margin: 20px;
-}
-
 *,
 *::before,
-*::after {
-  box-sizing: border-box;
-}
+*::after { box-sizing: border-box; }
 
-/* タイトル中央寄せ */
-h1 {
-  margin-bottom: 10px;
-  text-align: center;
-}
+body { font-family: sans-serif; margin: 20px; }
+h1 { margin-bottom: 10px; text-align: center; }
 
-/* 上部トグル（Fes/Legacy表示切替）を中央寄せ */
 .top-toggles {
-  display: flex;
-  gap: 16px;
-  margin: 8px 0 16px;
-  justify-content: center;
+  display: flex; gap: 16px; margin: 8px 0 16px; justify-content: center;
 }
 
 /* =========================
-   フィルタUI
+   フィルタUI（見やすさ）
 ========================= */
 .filters {
-  display: grid;
-  gap: 16px;
-  margin: 16px auto;
+  display: grid; gap: 16px; margin: 16px auto;
   max-width: min(1100px, 100vw - 32px);
 }
-
 .filter-block {
-  padding: 14px 16px;
-  border: 1.5px solid #dcdcdc;
-  border-radius: 12px;
-  background: #fafafa;
+  padding: 14px 16px; border: 1.5px solid #dcdcdc; border-radius: 12px; background: #fafafa;
 }
-
-.filter-title {
-  font-weight: bold;
-  margin-bottom: 6px;
-}
-
-.checkboxes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 14px;
-  margin-top: 8px;
-}
-
+.filter-title { font-weight: 700; margin-bottom: 6px; }
+.checkboxes { display: flex; flex-wrap: wrap; gap: 12px 14px; margin-top: 8px; }
 .checkboxes label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  border: 1.5px solid #cfcfcf;
-  border-radius: 999px;
-  background: #fff;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 12px; border: 1.5px solid #cfcfcf; border-radius: 999px; background: #fff;
 }
-
-.filter-actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
+.filter-actions { display: flex; align-items: center; gap: 12px; }
 
 /* =========================
-   見出し
+   セクション見出し
 ========================= */
-.section-title {
-  margin: 16px 0 8px;
-  text-align: center;
-}
-.section-title.small {
-  font-size: 1rem;
-  opacity: .85;
-  text-align: center;
-}
+.section-title { margin: 16px 0 8px; text-align: center; }
+.section-title.small { font-size: 1rem; opacity: .85; text-align: center; }
 
 /* =========================
-   グリッド（6列固定）
+   グリッド（6列固定・中央寄せ）
 ========================= */
-.grid {
+.grid{
   display: grid;
-  grid-template-columns: repeat(6, 1fr); /* 常に6列固定 */
+  grid-template-columns: repeat(6, 1fr); /* 常に6列 */
   gap: 12px;
-
-  /* 画面幅に必ず収める */
   max-width: min(1100px, 100vw - 32px);
   margin: 0 auto;
+  align-items: start; /* 各行の高さ揃えを安定させる */
 }
 
-.cell {
+/* =========================
+   カード（高さ固定）
+========================= */
+/* カードは縦積みフレックスで、画像(正方形) + タイトル(2行固定) の合計高さを一定にする */
+.cell{
   position: relative;
+  display: flex;           /* 追加 */
+  flex-direction: column;  /* 追加 */
   text-align: center;
   cursor: pointer;
+  /* 高さ固定：正方形画像(=幅に依存) + タイトル固定高 + 余白
+     → 正方形は幅に応じて可変なので、ここでは「タイトル側」を固定する方針で揃える */
 }
 
-/* 画像枠 */
-.imgwrap {
+/* 画像枠：正方形・枠太め */
+.imgwrap{
   position: relative;
   width: 100%;
-  aspect-ratio: 1/1;
+  aspect-ratio: 1/1;       /* 正方形を保証 */
   overflow: hidden;
   border: 4px solid #ccc;
   border-radius: 10px;
+  flex: 0 0 auto;          /* 高さは画像の正方形に依存（伸縮しない） */
 }
-.imgwrap img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.imgwrap img{
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
   transition: transform .2s, filter .2s, border-color .2s;
 }
-.imgwrap:hover img {
-  transform: scale(1.05);
-}
+.imgwrap:hover img { transform: scale(1.05); }
 
 /* 所持/未所持の見た目 */
-.owned .imgwrap { border-color: green; }
+.owned  .imgwrap { border-color: green; }
 .unowned .imgwrap { border-color: black; }
 .owned  .imgwrap img { filter: none; }
 .unowned .imgwrap img { filter: grayscale(100%) brightness(20%); }
 
-/* タイトル（高さ揃え＋省略） */
-.title {
+/* タイトル：2行で固定高にして高さブレを完全排除 */
+.title{
   margin-top: 6px;
   font-size: 14px;
-  height: 1.4em;
-  line-height: 1.4;
-  white-space: nowrap;
+  line-height: 1.2;
+  min-height: calc(1.2em * 2); /* 2行分の高さを確保 */
+  max-height: calc(1.2em * 2);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;       /* 2行で切る */
   overflow: hidden;
-  text-overflow: ellipsis;
+  word-break: break-word;
 }
 
-/* ツールチップ */
-.tooltip {
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  bottom: 110%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0,0,0,.85);
-  color: #fff;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-size: 12px;
-  width: min(220px, 90vw);
-  text-align: center;
-  transition: opacity .2s;
-  z-index: 10;
-  pointer-events: none;
+/* ツールチップ（hoverで条件表示） */
+.tooltip{
+  visibility: hidden; opacity: 0;
+  position: absolute; bottom: 110%; left: 50%; transform: translateX(-50%);
+  background: rgba(0,0,0,.85); color: #fff; padding: 6px 10px; border-radius: 6px;
+  font-size: 12px; width: min(220px, 90vw); text-align: center;
+  transition: opacity .2s; z-index: 10; pointer-events: none;
 }
-.cell:hover .tooltip {
-  visibility: visible;
-  opacity: 1;
-}
+.cell:hover .tooltip{ visibility: visible; opacity: 1; }
 
 /* =========================
-   スマホ対応
+   スマホ微調整（フォント等）
 ========================= */
-@media (max-width: 600px) {
-  .title {
-    font-size: 12px;
-  }
-
-  .filter-block {
-    padding: 12px;
-  }
-
-  .checkboxes {
-    gap: 10px 12px;
-  }
-
-  .checkboxes label {
-    padding: 7px 14px;
-  }
+@media (max-width: 600px){
+  .title{ font-size: 12px; }
+  .filter-block{ padding: 12px; }
+  .checkboxes{ gap: 10px 12px; }
+  .checkboxes label{ padding: 7px 14px; }
 }
