@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ToN 成果一覧</title>
+  <style>
+    body { font-family: sans-serif; margin: 20px; }
+    h1 { margin-bottom: 10px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr); /* 横6列に変更 */
+      gap: 15px;
+    }
+    .cell {
+      text-align: center;
+      position: relative;
+      cursor: pointer;
+    }
+    .cell img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      transition: transform 0.2s;
+    }
+    .cell img:hover {
+      transform: scale(1.05);
+    }
+    .owned img { border-color: green; }
+    .unowned img { border-color: red; }
+    .title {
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    /* ツールチップ */
+    .tooltip {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      bottom: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.85);
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      width: 200px;
+      text-align: center;
+      transition: opacity 0.2s;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .cell:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <h1>ToN 成果一覧</h1>
+  <div id="grid" class="grid"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
