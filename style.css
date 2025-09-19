@@ -1,4 +1,3 @@
-/* 基本 */
 body{font-family:sans-serif;margin:20px}
 h1{margin-bottom:10px}
 
@@ -17,24 +16,20 @@ h1{margin-bottom:10px}
 
 .cell{position:relative;text-align:center;cursor:pointer}
 
-/* 画像のチラつき/高さブレ対策：固定アスペクトの枠を用意 */
+/* 画像枠固定でチラつき軽減 */
 .imgwrap{position:relative;width:100%;aspect-ratio:1/1;overflow:hidden;border:2px solid #ccc;border-radius:8px}
 .imgwrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .2s,filter .2s,border-color .2s}
 .imgwrap:hover img{transform:scale(1.05)}
 
-/* 所持/未所持 */
+/* 所持/未所持の見た目 */
 .owned .imgwrap{border-color:green}
 .unowned .imgwrap{border-color:black}
 .owned  .imgwrap img{filter:none}
 .unowned .imgwrap img{filter:grayscale(100%) brightness(60%)}
 
-/* タイトル */
+/* タイトル & ツールチップ */
 .title{margin-top:5px;font-size:14px;min-height:1.2em}
-
-/* ツールチップ（条件） */
-.tooltip{
-  visibility:hidden;opacity:0;position:absolute;bottom:110%;left:50%;transform:translateX(-50%);
-  background:rgba(0,0,0,.85);color:#fff;padding:6px 10px;border-radius:6px;
-  font-size:12px;width:200px;text-align:center;transition:opacity .2s;z-index:10;pointer-events:none
-}
+.tooltip{visibility:hidden;opacity:0;position:absolute;bottom:110%;left:50%;transform:translateX(-50%);
+  background:rgba(0,0,0,.85);color:#fff;padding:6px 10px;border-radius:6px;font-size:12px;width:200px;
+  text-align:center;transition:opacity .2s;z-index:10;pointer-events:none}
 .cell:hover .tooltip{visibility:visible;opacity:1}
