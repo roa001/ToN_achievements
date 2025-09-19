@@ -212,7 +212,7 @@
     "condition": "「experimentation」で「マクスウェル」を見つける",
     "owned": false,
     "tags": [
-      "特定ステージ",
+      "特定マップ",
       "アイテム解放"
     ],
     "image": "images/018_Fateful_Encounter.jpg"
@@ -223,7 +223,7 @@
     "condition": "Museumで封印剣を盗む",
     "owned": false,
     "tags": [
-      "特定ステージ",
+      "特定マップ",
       "アイテム解放"
     ],
     "image": "images/019_Collateral_Damage.jpg"
@@ -629,7 +629,7 @@
     "condition": "「Wall」の草むらから離れずに170秒間居続ける",
     "owned": false,
     "tags": [
-      "特定ステージ",
+      "特定マップ",
       "居続ける"
     ],
     "image": "images/056_Freedom.jpg"
@@ -2012,7 +2012,7 @@
     "condition": "「Hub」のミラーから離れずに170秒間居続ける",
     "owned": false,
     "tags": [
-      "特定ステージ",
+      "特定マップ",
       "居続ける"
     ],
     "image": "images/180_Mirror_Dweller.jpg"
