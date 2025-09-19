@@ -1,65 +1,176 @@
-/* 基本 */
-body{font-family:sans-serif;margin:20px}
+/* =========================
+   基本レイアウト
+========================= */
+body {
+  font-family: sans-serif;
+  margin: 20px;
+}
 
 /* タイトル中央寄せ */
-h1{
-  margin-bottom:10px;
-  text-align:center;
+h1 {
+  margin-bottom: 10px;
+  text-align: center;
 }
 
-/* 上部トグル（Fes/LegacyのON/OFFボタン）も中央寄せ */
-.top-toggles{
-  display:flex;
-  gap:16px;
-  margin:8px 0 16px;
-  justify-content:center;
+/* 上部トグル（Fes/Legacy表示切替）を中央寄せ */
+.top-toggles {
+  display: flex;
+  gap: 16px;
+  margin: 8px 0 16px;
+  justify-content: center;
 }
 
-/* フィルタUI大枠を中央寄せ（最大幅を決める） */
-.filters{
-  display:grid;
-  gap:12px;
-  margin:12px auto;
-  max-width:1100px;
+/* =========================
+   フィルタUI
+========================= */
+.filters {
+  display: grid;
+  gap: 16px;
+  margin: 16px auto;
+  max-width: 1100px; /* 中央寄せ＋幅制限 */
 }
 
-/* サブ見出し中央寄せ */
-.section-title{
-  margin:16px 0 8px;
-  text-align:center;
-}
-.section-title.small{
-  font-size:1rem;
-  opacity:.85;
-  text-align:center;
+.filter-block {
+  padding: 14px 16px;
+  border: 1.5px solid #dcdcdc;
+  border-radius: 12px;
+  background: #fafafa; /* 薄背景でブロック感 */
 }
 
-/* ===== グリッド（通常・Fes・Legacy共通仕様） ===== */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(160px,1fr));
-  gap:15px;
-
-  max-width:1100px;   /* 最大幅を制限 */
-  margin:0 auto;      /* 中央寄せ */
+.filter-title {
+  font-weight: bold;
+  margin-bottom: 6px;
 }
 
-.cell{position:relative;text-align:center;cursor:pointer}
+.checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 14px; /* 行/列に余白 */
+  margin-top: 8px;
+}
 
-/* 画像枠 */
-.imgwrap{position:relative;width:100%;aspect-ratio:1/1;overflow:hidden;border:6px solid #ccc;border-radius:10px}
-.imgwrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .2s,filter .2s,border-color .2s}
-.imgwrap:hover img{transform:scale(1.05)}
+.checkboxes label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1.5px solid #cfcfcf;
+  border-radius: 999px;
+  background: #fff;
+}
 
-/* 所持/未所持 */
-.owned .imgwrap{border-color:green}
-.unowned .imgwrap{border-color:black}
-.owned  .imgwrap img{filter:none}
-.unowned .imgwrap img{filter:grayscale(100%) brightness(20%)}
+.filter-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* =========================
+   見出し
+========================= */
+.section-title {
+  margin: 16px 0 8px;
+  text-align: center;
+}
+.section-title.small {
+  font-size: 1rem;
+  opacity: .85;
+  text-align: center;
+}
+
+/* =========================
+   グリッド（通常 / Fes / Legacy 共通）
+========================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 常に6列 */
+  gap: 15px;
+
+  max-width: 1100px;   /* 最大幅を制限 */
+  margin: 0 auto;      /* 中央寄せ */
+}
+
+.cell {
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* 画像枠：太め（4px）＆固定アスペクト */
+.imgwrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  border: 4px solid #ccc;
+  border-radius: 10px;
+}
+.imgwrap img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .2s, filter .2s, border-color .2s;
+}
+.imgwrap:hover img {
+  transform: scale(1.05);
+}
+
+/* 所持/未所持の見た目 */
+.owned .imgwrap { border-color: green; }
+.unowned .imgwrap { border-color: black; }
+.owned  .imgwrap img { filter: none; }
+.unowned .imgwrap img { filter: grayscale(100%) brightness(20%); }
 
 /* タイトル & ツールチップ */
-.title{margin-top:6px;font-size:14px;min-height:1.2em}
-.tooltip{visibility:hidden;opacity:0;position:absolute;bottom:110%;left:50%;transform:translateX(-50%);
-  background:rgba(0,0,0,.85);color:#fff;padding:6px 10px;border-radius:6px;font-size:12px;width:220px;
-  text-align:center;transition:opacity .2s;z-index:10;pointer-events:none}
-.cell:hover .tooltip{visibility:visible;opacity:1}
+.title {
+  margin-top: 6px;
+  font-size: 14px;
+  min-height: 1.2em;
+}
+.tooltip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,.85);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  width: 220px;
+  text-align: center;
+  transition: opacity .2s;
+  z-index: 10;
+  pointer-events: none;
+}
+.cell:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* =========================
+   スマホ対応
+========================= */
+@media (max-width: 600px) {
+  /* タイトルは省略表示 */
+  .title {
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* ツールチップを画面幅に収める */
+  .tooltip {
+    width: min(220px, 90vw);
+  }
+
+  /* フィルタUIの余白調整 */
+  .filter-block { padding: 12px; }
+  .checkboxes { gap: 10px 12px; }
+  .checkboxes label { padding: 7px 14px; }
+}
