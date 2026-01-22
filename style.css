@@ -8,6 +8,14 @@
 body { font-family: sans-serif; margin: 20px; }
 h1 { margin-bottom: 10px; text-align: center; }
 
+.disclaimer{
+  margin: 6px 0 14px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: 0.75;
+}
+
 .top-toggles {
   display: flex; gap: 16px; margin: 8px 0 16px; justify-content: center;
 }
