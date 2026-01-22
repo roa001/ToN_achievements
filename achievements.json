@@ -6,7 +6,7 @@
     "owned": false,
     "tags": [
       "生存",
-      "特定ラウンド"
+      "ブラッドバス"
     ],
     "image": "images/001_Not_Enough_Blood.jpg"
   },
@@ -17,7 +17,7 @@
     "owned": false,
     "tags": [
       "生存",
-      "特定ラウンド"
+      "霧"
     ],
     "image": "images/002_No_Smoking.jpg"
   },
@@ -28,7 +28,7 @@
     "owned": false,
     "tags": [
       "生存",
-      "特定ラウンド"
+      "狂気"
     ],
     "image": "images/003_Broken_Boundaries.jpg"
   },
@@ -39,7 +39,7 @@
     "owned": false,
     "tags": [
       "生存",
-      "特定ラウンド"
+      "オルタネイト"
     ],
     "image": "images/004_The_Other_Side.jpg"
   },
@@ -50,7 +50,7 @@
     "owned": false,
     "tags": [
       "生存",
-      "特定ラウンド"
+      "サボタージュ"
     ],
     "image": "images/005_Escaped.jpg"
   },
@@ -61,7 +61,9 @@
     "owned": false,
     "tags": [
       "生存",
-      "特定ラウンド"
+      "ブラッドバス",
+      "特定アイテム所持",
+      "アイテム解放"
     ],
     "image": "images/006_Qalk_It_Off.jpg"
   },
@@ -71,10 +73,10 @@
     "condition": "「メタルバット」で「ブラッドバス」を生存",
     "owned": false,
     "tags": [
-      "アイテム解放",
+      "生存",
+      "ブラッドバス",
       "特定アイテム所持",
-      "特定ラウンド",
-      "生存"
+      "アイテム解放"
     ],
     "image": "images/007_Slaughter.jpg"
   },
@@ -84,10 +86,10 @@
     "condition": "「テレポーター」で「ブラッドバス」を生存",
     "owned": false,
     "tags": [
-      "アイテム解放",
+      "生存",
+      "ブラッドバス",
       "特定アイテム所持",
-      "特定ラウンド",
-      "生存"
+      "アイテム解放"
     ],
     "image": "images/008_Sacrifical.jpg"
   },
@@ -97,10 +99,10 @@
     "condition": "「メタルバット」で「オルタネイト」を生存",
     "owned": false,
     "tags": [
-      "アイテム解放",
+      "生存",
+      "オルタネイト",
       "特定アイテム所持",
-      "特定ラウンド",
-      "生存"
+      "アイテム解放"
     ],
     "image": "images/009_Oooo_Shiny.jpg"
   },
@@ -110,10 +112,10 @@
     "condition": "「テレポーター」で「オルタネイト」を生存",
     "owned": false,
     "tags": [
-      "アイテム解放",
+      "生存",
+      "オルタネイト",
       "特定アイテム所持",
-      "特定ラウンド",
-      "生存"
+      "アイテム解放"
     ],
     "image": "images/010_Business_Partner.jpg"
   },
@@ -123,10 +125,10 @@
     "condition": "「アンティークリボルバー」で「オルタネイト」を生存",
     "owned": false,
     "tags": [
-      "アイテム解放",
+      "生存",
+      "オルタネイト",
       "特定アイテム所持",
-      "特定ラウンド",
-      "生存"
+      "アイテム解放"
     ],
     "image": "images/011_Pale_Associate.jpg"
   },
@@ -136,10 +138,10 @@
     "condition": "「メタルバット」で「ミッドナイト」を生存",
     "owned": false,
     "tags": [
-      "アイテム解放",
+      "生存",
+      "ミッドナイト",
       "特定アイテム所持",
-      "特定ラウンド",
-      "生存"
+      "アイテム解放"
     ],
     "image": "images/012_Judgement.jpg"
   },
@@ -149,10 +151,10 @@
     "condition": "「メタルバット」で「狂気」を生存",
     "owned": false,
     "tags": [
-      "アイテム解放",
+      "生存",
+      "狂気",
       "特定アイテム所持",
-      "特定ラウンド",
-      "生存"
+      "アイテム解放"
     ],
     "image": "images/013_Am_I_tripping.jpg"
   },
@@ -162,7 +164,7 @@
     "condition": "ラウンドタイプ「ミッドナイト」を生存",
     "owned": false,
     "tags": [
-      "特定ラウンド",
+      "ミッドナイト",
       "生存"
     ],
     "image": "images/014_Crack_of_Dawn.jpg"
@@ -173,10 +175,10 @@
     "condition": "「グローコイル」で「ミスティックムーン」を生存",
     "owned": false,
     "tags": [
-      "アイテム解放",
+      "生存",
+      "ムーン",
       "特定アイテム所持",
-      "特定ラウンド",
-      "生存"
+      "アイテム解放"
     ],
     "image": "images/015_The_False_Light.jpg"
   },
@@ -186,10 +188,10 @@
     "condition": "「カオスコイル」で「トワイライト」を生存",
     "owned": false,
     "tags": [
-      "アイテム解放",
+      "生存",
+      "ムーン",
       "特定アイテム所持",
-      "特定ラウンド",
-      "生存"
+      "アイテム解放"
     ],
     "image": "images/016_Watchful_Eyes.jpg"
   },
@@ -199,10 +201,10 @@
     "condition": "「メッドキット」で「ブラッドムーン」を生存",
     "owned": false,
     "tags": [
-      "アイテム解放",
+      "生存",
+      "ムーン",
       "特定アイテム所持",
-      "特定ラウンド",
-      "生存"
+      "アイテム解放"
     ],
     "image": "images/017_The_War_Is_Over.jpg"
   },
@@ -246,7 +248,8 @@
     "owned": false,
     "tags": [
       "生存",
-      "特定テラー"
+      "特定テラー",
+      "アイテム解放"
     ],
     "image": "images/021_Forgive_Us.jpg"
   },
@@ -292,7 +295,8 @@
     "owned": false,
     "tags": [
       "生存",
-      "特定ラウンド"
+      "特定ラウンド",
+      "ムーン"
     ],
     "image": "images/025_Fading_Memory.jpg"
   },
@@ -303,7 +307,8 @@
     "owned": false,
     "tags": [
       "生存",
-      "特定ラウンド"
+      "特定ラウンド",
+      "ムーン"
     ],
     "image": "images/026_Darkest_Day.jpg"
   },
@@ -314,7 +319,8 @@
     "owned": false,
     "tags": [
       "生存",
-      "特定ラウンド"
+      "特定ラウンド",
+      "ムーン"
     ],
     "image": "images/027_War.jpg"
   },
@@ -325,7 +331,8 @@
     "owned": false,
     "tags": [
       "生存",
-      "特定ラウンド"
+      "特定ラウンド",
+      "ムーン"
     ],
     "image": "images/028_The_Acolyte.jpg"
   },
@@ -337,7 +344,7 @@
     "tags": [
       "生存",
       "特定テラー",
-      "特定ラウンド"
+      "狂気"
     ],
     "image": "images/029_Genocide.jpg"
   },
@@ -347,7 +354,7 @@
     "condition": "封印剣を所持中に「パニッシュ」にて「Arkus」に遭遇",
     "owned": false,
     "tags": [
-      "特定ラウンド",
+      "パニッシュ",
       "特定テラー",
       "特定アイテム所持"
     ],
@@ -372,18 +379,18 @@
     "tags": [
       "生存",
       "特定テラー",
-      "特定ラウンド"
+      "狂気"
     ],
     "image": "images/032_The_Purplest_Guy.jpg"
   },
   {
     "id": 33,
     "title": "異端者",
-    "condition": "「WhiteNight」の使徒と戦闘を行う",
+    "condition": "「WhiteNight」の使徒と戦闘を行う（指定回数スタンさせる）",
     "owned": false,
     "tags": [
       "特定テラー",
-      "その他"
+      "スタン"
     ],
     "image": "images/033_Heresy.jpg"
   },
@@ -394,7 +401,7 @@
     "owned": false,
     "tags": [
       "生存",
-      "特定ラウンド"
+      "パニッシュ"
     ],
     "image": "images/034_Time_Out.jpg"
   },
@@ -404,7 +411,9 @@
     "condition": "封印剣を進化させる",
     "owned": false,
     "tags": [
-      "アイテム解放"
+      "アイテム解放",
+      "特定テラー",
+      "その他"
     ],
     "image": "images/035_Ancient_Power_Mixed.jpg"
   },
@@ -415,7 +424,8 @@
     "owned": false,
     "tags": [
       "生存",
-      "その他"
+      "特定アイテム所持",
+      "ムーン"
     ],
     "image": "images/036_All_Skill.jpg"
   },
@@ -531,8 +541,7 @@
     "condition": "「Interloper」に殺される",
     "owned": false,
     "tags": [
-      "死亡",
-      "その他"
+      "死亡"
     ],
     "image": "images/047_INTERLOPE.jpg"
   },
@@ -543,7 +552,7 @@
     "owned": false,
     "tags": [
       "特定テラー",
-      "その他"
+      "スタン"
     ],
     "image": "images/048_Oh_No.jpg"
   },
@@ -554,7 +563,6 @@
     "owned": false,
     "tags": [
       "特定テラー",
-      "遭遇",
       "その他"
     ],
     "image": "images/049_Dango_Dango_Dango.jpg"
@@ -584,10 +592,9 @@
   {
     "id": 52,
     "title": "死んででも",
-    "condition": "「Specimen 9」に追いかけられてる間にラウンドで勝利する",
+    "condition": "「Specimen 9」（放置テラー）に追いかけられてる間にラウンドで勝利する",
     "owned": false,
     "tags": [
-      "その他",
       "生存"
     ],
     "image": "images/052_To_Take_The_Dead.jpg"
@@ -619,7 +626,7 @@
     "owned": false,
     "tags": [
       "特定テラー",
-      "特殊行動"
+      "その他"
     ],
     "image": "images/055_Deal_With_The_Devil.jpg"
   },
@@ -673,8 +680,7 @@
     "condition": "「Don't Touch Me」を起動する",
     "owned": false,
     "tags": [
-      "特定テラー",
-      "特殊行動"
+      "特定テラー"
     ],
     "image": "images/060_Rule_Breaker.jpg"
   },
@@ -694,7 +700,6 @@
     "condition": "一切ダメージを負わずに10ラウンド連続で生存",
     "owned": false,
     "tags": [
-      "生存",
       "その他"
     ],
     "image": "images/062_Perfection.jpg"
@@ -726,7 +731,7 @@
     "owned": false,
     "tags": [
       "特定テラー",
-      "特殊行動"
+      "生存"
     ],
     "image": "images/065_Whats_For_Dinner.jpg"
   },
@@ -748,6 +753,7 @@
     "owned": false,
     "tags": [
       "特定ラウンド",
+      "サボタージュ",
       "マーダー",
       "生存"
     ],
@@ -792,6 +798,7 @@
     "condition": "ロビーにてNeco Arcに遭遇する",
     "owned": false,
     "tags": [
+      "遭遇",
       "その他"
     ],
     "image": "images/071_Dilemma.jpg"
@@ -802,8 +809,7 @@
     "condition": "発狂したRed Busを目撃する",
     "owned": false,
     "tags": [
-      "特定テラー",
-      "特殊行動"
+      "特定テラー"
     ],
     "image": "images/072_Late_For_Work.jpg"
   },
@@ -824,7 +830,8 @@
     "condition": "Ephカウンターが200以上の「ミッドナイト」で生存",
     "owned": false,
     "tags": [
-      "生存"
+      "生存",
+      "ミッドナイト"
     ],
     "image": "images/074_Live_and_Learn.jpg"
   },
@@ -841,7 +848,7 @@
   {
     "id": 76,
     "title": "研究者",
-    "condition": "ナイトメア図鑑を完成させる",
+    "condition": "ナイトメア（通常テラー）図鑑を完成させる",
     "owned": false,
     "tags": [
       "コンプリート"
@@ -871,7 +878,7 @@
   {
     "id": 79,
     "title": "Ranの導き",
-    "condition": "Christian Brutal Sniper・Huggy・Akumii-Kariから生存",
+    "condition": "Christian Brutal Sniper、Huggy、Akumii-Kariから生存",
     "owned": false,
     "tags": [
       "特定テラー",
@@ -896,8 +903,7 @@
     "condition": "「ブラッドバス」にて最後の一人として生存",
     "owned": false,
     "tags": [
-      "特定ラウンド",
-      "特殊条件下",
+      "ブラッドバス",
       "生存"
     ],
     "image": "images/081_Like_She_Do.jpg"
@@ -931,7 +937,7 @@
     "owned": false,
     "tags": [
       "生存",
-      "特定ラウンド"
+      "8ページ"
     ],
     "image": "images/084_Page_Thief.jpg"
   },
@@ -942,7 +948,7 @@
     "owned": false,
     "tags": [
       "特定テラー",
-      "特定ラウンド",
+      "ミッドナイト",
       "生存"
     ],
     "image": "images/085_Mindless_Machine.jpg"
@@ -954,7 +960,7 @@
     "owned": false,
     "tags": [
       "特定アイテム所持",
-      "特定ラウンド",
+      "ムーン",
       "生存"
     ],
     "image": "images/086_Rite_of_Passage.jpg"
@@ -976,7 +982,8 @@
     "owned": false,
     "tags": [
       "特定テラー",
-      "特定ラウンド",
+      "ブラッドバス",
+      "ミッドナイト",
       "生存"
     ],
     "image": "images/088_Hide_and_Seek_Champion.jpg"
@@ -988,7 +995,8 @@
     "owned": false,
     "tags": [
       "特定テラー",
-      "特定ラウンド",
+      "ブラッドバス",
+      "ミッドナイト",
       "生存"
     ],
     "image": "images/089_TheWorld.jpg"
@@ -1021,7 +1029,6 @@
     "condition": "同じキラーを2体同時に目にする",
     "owned": false,
     "tags": [
-      "特殊条件下",
       "遭遇"
     ],
     "image": "images/092_Mitosis.jpg"
@@ -1044,7 +1051,8 @@
     "owned": false,
     "tags": [
       "特定テラー",
-      "特定ラウンド",
+      "ミッドナイト",
+      "アンバウンド",
       "生存"
     ],
     "image": "images/094_Lost_Soul.jpg"
@@ -1055,7 +1063,6 @@
     "condition": "ToNにてBeyondさんに遭遇する",
     "owned": false,
     "tags": [
-      "その他",
       "遭遇"
     ],
     "image": "images/095_Defiled.jpg"
@@ -1078,7 +1085,7 @@
     "owned": false,
     "tags": [
       "特定テラー",
-      "特殊行動"
+      "スタン"
     ],
     "image": "images/097_THIS_IS_NOT_FUN.jpg"
   },
@@ -1142,7 +1149,7 @@
     "owned": false,
     "tags": [
       "特定テラー",
-      "特殊行動"
+      "その他"
     ],
     "image": "images/103_CONNECTION_LOST.jpg"
   },
@@ -1185,7 +1192,7 @@
     "owned": false,
     "tags": [
       "生存",
-      "特定ラウンド"
+      "アンバウンド"
     ],
     "image": "images/107_Unchained.jpg"
   },
@@ -1207,7 +1214,7 @@
     "owned": false,
     "tags": [
       "特定マップ",
-      "特殊行動"
+      "死亡"
     ],
     "image": "images/109_Lost_In_Space.jpg"
   },
@@ -1218,7 +1225,7 @@
     "owned": false,
     "tags": [
       "特定マップ",
-      "特殊行動"
+      "死亡"
     ],
     "image": "images/110_Shutdown.jpg"
   },
@@ -1228,7 +1235,7 @@
     "condition": "「TBH」にてTBHに遭遇する",
     "owned": false,
     "tags": [
-      "特定ラウンド",
+      "特定マップ",
       "特定テラー"
     ],
     "image": "images/111_TBH.jpg"
@@ -1240,7 +1247,7 @@
     "owned": false,
     "tags": [
       "特定マップ",
-      "特殊行動"
+      "その他"
     ],
     "image": "images/112_Loremaster.jpg"
   },
@@ -1250,7 +1257,7 @@
     "condition": "Transportation Trio & The Drifterから生存",
     "owned": false,
     "tags": [
-      "特定ラウンド",
+      "アンバウンド",
       "生存"
     ],
     "image": "images/113_Bus_Pass.jpg"
@@ -1261,7 +1268,7 @@
     "condition": "人形アイテムで「オルタネイト」を生存",
     "owned": false,
     "tags": [
-      "特定ラウンド",
+      "オルタネイト",
       "特定アイテム所持",
       "生存"
     ],
@@ -1273,7 +1280,7 @@
     "condition": "Monarchから生存",
     "owned": false,
     "tags": [
-      "特定テラー",
+      "ミッドナイト",
       "生存"
     ],
     "image": "images/115_Ruined.jpg"
@@ -1284,8 +1291,7 @@
     "condition": "扉を通ってThe MeatBallManから脱出する",
     "owned": false,
     "tags": [
-      "特定マップ",
-      "特殊行動"
+      "Run"
     ],
     "image": "images/116_An_Alternate_Exit.jpg"
   },
@@ -1296,7 +1302,7 @@
     "owned": false,
     "tags": [
       "特定マップ",
-      "特殊行動"
+      "スタン"
     ],
     "image": "images/117_HEY_STOP_THAT.jpg"
   },
@@ -1317,7 +1323,7 @@
     "owned": false,
     "tags": [
       "特定マップ",
-      "特殊行動",
+      "UFOキャッチャー",
       "アイテム解放"
     ],
     "image": "images/119_Depressing_Prize.jpg"
@@ -1329,7 +1335,7 @@
     "owned": false,
     "tags": [
       "特定マップ",
-      "特殊行動",
+      "UFOキャッチャー",
       "アイテム解放"
     ],
     "image": "images/120_Chaotic_Priza.jpg"
@@ -1341,7 +1347,7 @@
     "owned": false,
     "tags": [
       "特定マップ",
-      "特殊行動",
+      "UFOキャッチャー",
       "アイテム解放"
     ],
     "image": "images/121_Selfless_Prize.jpg"
@@ -1352,8 +1358,7 @@
     "condition": "インスタンス内の誰かがDarkGrey人形を「Astral」のDarkGreyの墓に持ち込む",
     "owned": false,
     "tags": [
-      "特定マップ",
-      "特殊行動"
+      "特定マップ"
     ],
     "image": "images/122_Astral_Burial.jpg"
   },
@@ -1364,7 +1369,7 @@
     "owned": false,
     "tags": [
       "特定マップ",
-      "特殊行動",
+      "その他",
       "特定アイテム所持"
     ],
     "image": "images/123_Henry114s_Secret.jpg"
@@ -1375,7 +1380,6 @@
     "condition": "ハンバーガーを食べる",
     "owned": false,
     "tags": [
-      "その他",
       "特定アイテム所持"
     ],
     "image": "images/124_Om_Nom_Nom.jpg"
@@ -1429,8 +1433,7 @@
     "condition": "「Hotel」の隙間から覗く",
     "owned": false,
     "tags": [
-      "特定マップ",
-      "特殊行動"
+      "特定マップ"
     ],
     "image": "images/129_Peek-A-Boo.jpg"
   },
@@ -1440,7 +1443,7 @@
     "condition": "「8ページ」のWardenから生存",
     "owned": false,
     "tags": [
-      "特定ラウンド",
+      "8ページ",
       "特定テラー",
       "生存"
     ],
@@ -1452,7 +1455,7 @@
     "condition": "「8ページ」のAngry Munciから生存",
     "owned": false,
     "tags": [
-      "特定ラウンド",
+      "8ページ",
       "特定テラー",
       "生存"
     ],
@@ -1477,7 +1480,7 @@
     "tags": [
       "アイテム解放",
       "特定アイテム所持",
-      "特定ラウンド",
+      "ブラッドバス",
       "生存"
     ],
     "image": "images/133_Red_Defender.jpg"
@@ -1490,7 +1493,7 @@
     "tags": [
       "アイテム解放",
       "特定アイテム所持",
-      "特定ラウンド",
+      "ゴースト",
       "生存"
     ],
     "image": "images/134_Super_Ghost_Burgers.jpg"
@@ -1503,7 +1506,7 @@
     "tags":[
       "アイテム解放",
       "特定アイテム所持",
-      "特定ラウンド",
+      "ブラッドバス",
       "生存"
     ],
     "image": "images/135_Deadmans_Iron.jpg"
@@ -1525,7 +1528,6 @@
     "owned": false,
     "tags": [
       "特定テラー",
-      "特定ラウンド",
       "生存"
     ],
     "image": "images/137_All_Her_Fault.jpg"
@@ -1537,7 +1539,7 @@
     "owned": false,
     "tags": [
       "特定テラー",
-      "特定ラウンド",
+      "8ページ",
       "生存"
     ],
     "image": "images/138_Followed.jpg"
@@ -1560,7 +1562,7 @@
     "tags": [
       "アイテム解放",
       "特定アイテム所持",
-      "特定ラウンド",
+      "オルタネイト",
       "生存"
     ],
     "image": "images/140_Who_Needs_Pain.jpg"
@@ -1571,8 +1573,7 @@
     "condition": "第三段階の感染をかかった状態で生存する",
     "owned": false,
     "tags": [
-      "特定テラー",
-      "特殊行動"
+      "その他"
     ],
     "image": "images/141_It_Grows_Within.jpg"
   },
@@ -1582,8 +1583,7 @@
     "condition": "Express Train To Hellから切符を購入する",
     "owned": false,
     "tags": [
-      "特定テラー",
-      "特殊行動"
+      "特定テラー"
     ],
     "image": "images/142_One_Way_Ticket.jpg"
   },
@@ -1615,7 +1615,8 @@
     "owned": false,
     "tags": [
       "特定テラー",
-      "生存"
+      "生存",
+      "8ページ"
     ],
     "image": "images/145_A_Shiny_Quarter.jpg"
   },
@@ -1627,7 +1628,7 @@
     "tags": [
       "アイテム解放",
       "特定アイテム所持",
-      "特定ラウンド",
+      "ゴースト",
       "生存"
     ],
     "image": "images/146_The_Force.jpg"
@@ -1638,7 +1639,7 @@
     "condition": "ラウンドタイプ「ゴースト」を生存",
     "owned": false,
     "tags": [
-      "特定ラウンド",
+      "ゴースト",
       "生存"
     ],
     "image": "images/147_Something_Strange.jpg"
@@ -1649,8 +1650,7 @@
     "condition": "「Cheese Maze」の全てのチーズを見つける",
     "owned": false,
     "tags": [
-      "特定マップ",
-      "特殊行動"
+      "特定マップ"
     ],
     "image": "images/148_Cheesed_to_Meet_You.jpg"
   },
@@ -1692,8 +1692,7 @@
     "condition": "倒れたBed Mechaを操作する",
     "owned": false,
     "tags": [
-      "特定テラー",
-      "特殊行動"
+      "特定テラー"
     ],
     "image": "images/152_Oh_So_Sleepy.jpg"
   },
@@ -1705,7 +1704,7 @@
     "tags": [
       "アイテム解放",
       "特定アイテム所持",
-      "特定ラウンド",
+      "ミッドナイト",
       "生存"
     ],
     "image": "images/153_Destroyer_of_Worlds.jpg"
@@ -1718,7 +1717,7 @@
     "tags": [
       "アイテム解放",
       "特定アイテム所持",
-      "特定ラウンド",
+      "アンバウンド",
       "生存"
     ],
     "image": "images/154_Linked.jpg"
@@ -1731,7 +1730,7 @@
     "tags": [
       "アイテム解放",
       "特定アイテム所持",
-      "特定ラウンド",
+      "アンバウンド",
       "生存"
     ],
     "image": "images/155_Thrilling_Gameplay.jpg"
@@ -1742,7 +1741,7 @@
     "condition": "Searchlights(8ページ限定)から生存",
     "owned": false,
     "tags": [
-      "特定ラウンド",
+      "8ページ",
       "特定テラー",
       "生存"
     ],
@@ -1755,7 +1754,7 @@
     "owned": false,
     "tags": [
       "特定テラー",
-      "特殊行動"
+      "生存"
     ],
     "image": "images/157_Yukaris_Disciples.jpg"
   },
@@ -1766,7 +1765,6 @@
     "owned": false,
     "tags": [
       "特定テラー",
-      "特殊条件下",
       "生存"
     ],
     "image": "images/158_What_Was_The_Terror.jpg"
@@ -1778,7 +1776,7 @@
     "owned": false,
     "tags": [
       "特定テラー",
-      "特殊行動"
+      "スタン"
     ],
     "image": "images/159_Get_Clocked_Clockey.jpg"
   },
@@ -1811,7 +1809,7 @@
     "tags": [
       "アイテム解放",
       "特定マップ",
-      "特殊行動"
+      "UFOキャッチャー"
     ],
     "image": "images/162_Blockhead.jpg"
   },
@@ -1831,7 +1829,7 @@
     "condition": "不明な成果",
     "owned": false,
     "tags": [
-      "null"
+      
     ],
     "image": "images/DummyWhite.jpg"
   },
@@ -1887,7 +1885,7 @@
     "tags": [
       "アイテム解放",
       "特定アイテム所持",
-      "特定ラウンド",
+      "狂気",
       "生存"
     ],
     "image": "images/169_Loose_Screw.jpg"
@@ -1898,7 +1896,7 @@
     "condition": "「サボタージュ」にて、殺人者としてEphカウンターを100以上に上げる",
     "owned": false,
     "tags": [
-      "特定ラウンド",
+      "サボタージュ",
       "マーダー"
     ],
     "image": "images/170_Feral.jpg"
@@ -1909,8 +1907,9 @@
     "condition": "12人以上のインスタンスの「サボタージュ」にて、殺人者としてテラーが出現してから60秒以内に全員殺害する",
     "owned": false,
     "tags": [
-      "特定ラウンド",
-      "マーダー"
+      "サボタージュ",
+      "マーダー",
+      "生存"
     ],
     "image": "images/171_Cold_Blooded.jpg"
   },
@@ -1920,11 +1919,11 @@
     "condition": "「サボタージュ」にて、殺人者としてテラーのホームフィールドで全員殺害する",
     "owned": false,
     "tags": [
-      "特定ラウンド",
-      "マーダー",
+      "サボタージュ",
       "特定テラー",
       "特定マップ",
-      "特殊条件下"
+      "マーダー",
+      "生存"
     ],
     "image": "images/172_Hello_Neighbor.jpg"
   },
@@ -1934,8 +1933,9 @@
     "condition": "12人以上のインスタンスの「サボタージュ」にて、死亡者なしで生存する",
     "owned": false,
     "tags": [
-      "特定ラウンド",
-      "マーダー"
+      "サボタージュ",
+      "マーダー",
+      "生存"
     ],
     "image": "images/173_Pacifist_Ending.jpg"
   },
@@ -1945,7 +1945,7 @@
     "condition": "12人以上のインスタンスの「サボタージュ」にて、殺人者として生存者が残り1人の状態で死亡する",
     "owned": false,
     "tags": [
-      "特定ラウンド",
+      "サボタージュ",
       "マーダー",
       "死亡"
     ],
@@ -1957,7 +1957,7 @@
     "condition": "12人以上のインスタンスの「サボタージュ」にて、最後の1人として生存",
     "owned": false,
     "tags": [
-      "特定ラウンド",
+      "サボタージュ",
       "生存"
     ],
     "image": "images/175_Final_Girl.jpg"
@@ -1978,8 +1978,7 @@
     "condition": "Try Not To Touch Meのボタンを押す",
     "owned": false,
     "tags": [
-      "特定テラー",
-      "特殊行動"
+      "特定テラー"
     ],
     "image": "images/177_Please_Pet_Me.jpg"
   },
@@ -1991,7 +1990,7 @@
     "tags": [
       "アイテム解放",
       "特定アイテム所持",
-      "特定ラウンド",
+      "ミッドナイト",
       "生存"
     ],
     "image": "images/178_ARE_YOU_WATCHING_HEAVEN.jpg"
