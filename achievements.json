@@ -295,7 +295,6 @@
     "owned": false,
     "tags": [
       "生存",
-      "特定ラウンド",
       "ムーン"
     ],
     "image": "images/025_Fading_Memory.jpg"
@@ -307,7 +306,6 @@
     "owned": false,
     "tags": [
       "生存",
-      "特定ラウンド",
       "ムーン"
     ],
     "image": "images/026_Darkest_Day.jpg"
@@ -319,7 +317,6 @@
     "owned": false,
     "tags": [
       "生存",
-      "特定ラウンド",
       "ムーン"
     ],
     "image": "images/027_War.jpg"
@@ -331,7 +328,6 @@
     "owned": false,
     "tags": [
       "生存",
-      "特定ラウンド",
       "ムーン"
     ],
     "image": "images/028_The_Acolyte.jpg"
@@ -752,7 +748,6 @@
     "condition": "「サボタージュ」にてプレイヤーを全員殺害する。",
     "owned": false,
     "tags": [
-      "特定ラウンド",
       "サボタージュ",
       "マーダー",
       "生存"
@@ -841,7 +836,8 @@
     "condition": "The MeatBallManから生存",
     "owned": false,
     "tags": [
-      "生存"
+      "生存",
+      "Run"
     ],
     "image": "images/075_Endless_Appetite.jpg"
   },
@@ -1018,7 +1014,6 @@
     "condition": "占領ラウンドに遭遇する",
     "owned": false,
     "tags": [
-      "特定ラウンド",
       "遭遇"
     ],
     "image": "images/091_Showstar.jpg"

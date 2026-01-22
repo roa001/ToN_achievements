@@ -58,7 +58,54 @@ function buildTagListsFrom(list){
     const s = String(t).trim();
     if(s && s.toLowerCase()!=="null") set.add(s); // "null" 文字列は無視
   }));
-  allTags = Array.from(set).sort();
+  // ここで好きな順番を定義（この順で表示される）
+const TAG_ORDER = [
+  "生存",
+  "死亡",
+  "霧",
+  "ブラッドパス",
+  "パニッシュ",
+  "狂気",
+  "オルタネイト",
+  "ミッドナイト",
+  "サボタージュ",
+  "マーダー",
+  "アンバウンド",
+  "ゴースト",
+  "8ページ",
+  "Run",
+  "ムーン",
+  "アイテム解放",
+  "特定アイテム所持",
+  "特定テラー",
+  "特定マップ",
+  "遭遇",
+  "スタン",
+  "UFOキャッチャー",
+  "居続ける",
+  "コンプリート",
+  "コラボ",
+  "その他",
+];
+
+// TAG_ORDER に入ってないタグは最後に回す（最後は50音順で整理）
+function sortTagsCustom(tags){
+  const orderIndex = new Map(TAG_ORDER.map((t, i) => [t, i]));
+
+  return tags.sort((a, b) => {
+    const ia = orderIndex.has(a) ? orderIndex.get(a) : 9999;
+    const ib = orderIndex.has(b) ? orderIndex.get(b) : 9999;
+
+    // どちらも定義済みなら順番通り
+    if (ia !== 9999 || ib !== 9999) return ia - ib;
+
+    // どちらも未定義なら50音順（日本語対応）
+    return a.localeCompare(b, "ja");
+  });
+}
+
+  allTags = sortTagsCustom(Array.from(set));
+
 
   const inc = document.getElementById("includeBox");
   const exc = document.getElementById("excludeBox");
