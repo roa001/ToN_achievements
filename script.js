@@ -183,19 +183,27 @@ function renderMain(){
   updateCount();
 }
 
-// Fes / Legacy（フィルタ対象外・カウント外）
+// Collab / Fes / Legacy（フィルタ対象外・カウント外）
 function renderBottom(){
+  const showCollab = document.getElementById("toggleCollab").checked;
   const showFes    = document.getElementById("toggleFes").checked;
   const showLegacy = document.getElementById("toggleLegacy").checked;
 
+  const gc = document.getElementById("gridCollab");
   const gf = document.getElementById("gridFes");
   const gl = document.getElementById("gridLegacy");
 
+  gc.previousElementSibling.style.display = showCollab ? "" : "none";
   gf.previousElementSibling.style.display = showFes ? "" : "none";
   gl.previousElementSibling.style.display = showLegacy ? "" : "none";
+  gc.style.display = showCollab ? "grid" : "none";
   gf.style.display = showFes ? "grid" : "none";
   gl.style.display = showLegacy ? "grid" : "none";
 
+  if(showCollab){
+    gc.innerHTML = "";
+    collabAch.forEach(a => gc.appendChild(makeCell("collab", a)));
+  }
   if(showFes){
     gf.innerHTML = "";
     fesAch.forEach(a => gf.appendChild(makeCell("fes", a)));
