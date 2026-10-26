@@ -1,5 +1,6 @@
 // データを3分割
 let mainAch = [];     // achievements.json（通常）
+let collabAch = [];   //collab.json
 let fesAch = [];      // fes.json
 let legacyAch = [];   // legacy.json
 
@@ -13,14 +14,16 @@ document.addEventListener("DOMContentLoaded", init);
 
 async function init(){
   try{
-    const [m,f,l] = await Promise.all([
-      fetch("./achievements.json?ts="+Date.now()).then(r=>r.json()),
-      fetch("./fes_achievements.json?ts="+Date.now()).then(r=> r.ok ? r.json() : []),
-      fetch("./legacy_achievements.json?ts="+Date.now()).then(r=> r.ok ? r.json() : []),
-    ]);
-    mainAch   = m;
-    fesAch    = f;
-    legacyAch = l;
+      const [m,c,f,l] = await Promise.all([
+    fetch("./achievements.json?ts="+Date.now()).then(r=>r.json()),
+    fetch("./collab_achievements.json?ts="+Date.now()).then(r=>r.ok ? r.json() : []),
+    fetch("./fes_achievements.json?ts="+Date.now()).then(r=>r.ok ? r.json() : []),
+    fetch("./legacy_achievements.json?ts="+Date.now()).then(r=>r.ok ? r.json() : []),
+  ]);
+  mainAch = m;
+  collabAch = c;
+  fesAch = f;
+  legacyAch = l;
   }catch(e){
     console.error(e);
     document.getElementById("gridMain").textContent = "データ読込エラー";
@@ -29,6 +32,7 @@ async function init(){
 
   // 所持状況を復元（データセットごとに別キー）
   restoreOwned(mainAch,   "main");
+  restoreOwned(collabAch, "collab");
   restoreOwned(fesAch,    "fes");
   restoreOwned(legacyAch, "legacy");
 
@@ -148,8 +152,10 @@ function bindFilterEvents(){
 }
 
 function bindDatasetToggles(){
+  const tgC = document.getElementById("toggleCollab");
   const tgF = document.getElementById("toggleFes");
   const tgL = document.getElementById("toggleLegacy");
+  tgC.addEventListener("change", renderBottom);
   tgF.addEventListener("change", renderBottom);
   tgL.addEventListener("change", renderBottom);
 }
