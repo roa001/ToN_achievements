@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "title": "会計士の賄賂",
+    "condition": "他のワールド(Rooms4Dayz)で入手",
+    "owned": false,
+    "tags": [
+      "コラボ",
+      "アイテム解放"
+    ],
+    "image": "images/C001_Accountants_Bribe.jpg"
+  },
+  {
+    "id": 2,
+    "title": "狂人の発明",
+    "condition": "他のワールド(SlashCOVR)で入手",
+    "owned": false,
+    "tags": [
+      "コラボ",
+      "アイテム解放"
+    ],
+    "image": "images/C002_Madmans_Invention.jpg"
+  },
+  {
+    "id": 3,
+    "title": "ポケットペット",
+    "condition": "他のワールド(NeoWorlds)で入手",
+    "owned": false,
+    "tags": [
+      "コラボ",
+      "アイテム解放"
+    ],
+    "image": "images/C003_Pocket_Pet.jpg"
+  },
+  {
+    "id": 4,
+    "title": "科学用品",
+    "condition": "他のワールド(ProbabilityLabs)で入手",
+    "owned": false,
+    "tags": [
+      "コラボ",
+      "アイテム解放"
+    ],
+    "image": "images/C004_Scientific_Supplies.jpg"
+  },
+  {
+    "id": 5,
+    "title": "祓われた虚空",
+    "condition": "他のワールド(Elite's RNG Land)で入手",
+    "owned": false,
+    "tags": [
+      "コラボ",
+      "アイテム解放"
+    ],
+    "image": "images/C005_Settled_Void.jpg"
+  }
+]
