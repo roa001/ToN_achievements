@@ -48,15 +48,5 @@
     "【生存】特定テラー"
     ],
     "image": "images/L005_Test_Subject.jpg"
-  },
-      {
-    "id": 6,
-    "title": "蝕まれる虚空",
-    "condition": "アイテムチェストから生成されたブラックホールが存在するラウンドを生存",
-    "owned": false,
-    "tags": [
-    "【生存】特定テラー"
-    ],
-    "image": "images/L006_All_Consuming_Void.jpg"
   }
 ]
