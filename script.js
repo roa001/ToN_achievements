@@ -172,13 +172,20 @@ function filterItem(a){
 
 function renderAll(){ renderMain(); renderBottom(); }
 
-// 通常（カウント対象）
+// 通常（空白はカウント対象外）
 function renderMain(){
   const grid = document.getElementById("gridMain");
   grid.innerHTML = "";
 
-  const shown = mainAch.filter(filterItem);
-  shown.forEach(a => grid.appendChild(makeCell("main", a)));
+  mainAch.forEach(a => {
+    if (a.spacer) {
+      const space = document.createElement("div");
+      space.setAttribute("aria-hidden", "true");
+      grid.appendChild(space);
+    } else if (filterItem(a)) {
+      grid.appendChild(makeCell("main", a));
+    }
+  });
 
   updateCount();
 }
@@ -215,9 +222,11 @@ function renderBottom(){
 }
 
 function updateCount(){
-  const total = mainAch.length;
+  const achievements = mainAch.filter(a => !a.spacer);
+  const total = achievements.length;
   const filtered = document.querySelectorAll("#gridMain .cell").length;
-  const ownedCount = mainAch.filter(a=>a.owned).length;
+  const ownedCount = achievements.filter(a => a.owned).length;
+
   document.getElementById("count").textContent =
     `表示: ${filtered} / 全 ${total}（所持 ${ownedCount}）`;
 }
